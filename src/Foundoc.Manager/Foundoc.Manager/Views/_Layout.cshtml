@@ -1,0 +1,51 @@
+﻿@using System
+<!DOCTYPE html>
+<html lang="en" ng-app="foundoc">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FounDoc Management</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Assets/css/site.css">
+    <link rel="stylesheet" href="Assets/css/ngToast.min.css">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+</head>
+<body ng-controller="managerCtrl">
+    <toast></toast>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/foundocmanager" class="navbar-brand">FounDoc Manager</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+
+        @RenderBody()
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - FounDoc Manager</p>
+        </footer>
+    </div>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-animate.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="/Assets/js/ngToast.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Assets/js/app.js"></script>
+    <script type="text/javascript" src="/Assets/js/documentService.js"></script>
+    <script type="text/javascript" src="/Assets/js/apiClient.js"></script>
+</body>
+</html>

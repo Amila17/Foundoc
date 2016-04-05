@@ -1,0 +1,79 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Foundoc.Manager.ViewModels.ManagerModel>
+
+@{
+    Layout = "_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="row">
+            <div class="col-md-12">
+                <form role="form">
+                    <div class="form-group">
+                        <select class="form-control" ng-model="selectedDocument" ng-options="document.name for document in documents" ng-change="selectDocument()"></select>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="searchArea" ngclock>
+            <div class="row">
+                <div class="col-md-12" ng-show="documentSelected">
+                    <h4><small>Metadata</small></h4>
+                    <div class="metadata">
+                        <div>
+                            <span class="metadata-label">Document Count:</span>
+                            <span>{{metaData.count}}</span>
+                        </div>
+                        <div>
+                            <span class="metadata-label">Indexes:</span>
+                            <span>{{metaData.indexes}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form role="form" ng-show="documentSelected" name="searchForm">
+                        <legend>Search</legend>
+                        <div class="form-group">
+                            <select class="form-control" ng-model="selectedIndex" ng-options="index.name for index in indexes" ng-change="selectIndex()"></select>
+                            <div></div>
+                        </div>
+                        <div ng-show="indexSelected" ng-repeat="field in fields">
+                            <div class="form-group">
+                                <label>{{field.name}}</label>
+                                <input type="text" class="form-control" name="{{field.name}}" ng-model="field.value" required />
+                            </div>
+                        </div>
+                        <button id="search" ng-click="search()" ng-cloak ng-show="indexSelected" type="button" class="btn btn-primary">Search</button>
+                        <button id="delete" ng-click="delete()" ng-cloak ng-show="indexSelected" type="button" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9" ng-show="results.length > 0">
+        <div class="row">
+            <div id="searchResults" class="col-md-12">
+                <legend>Search SearchResults</legend>
+                <form role="form">
+                    <div class="form-group">
+                        <select class="form-control" ng-model="selectedResult" ng-options="result.documentId for result in results" ng-change="selectResult()" size="3"></select>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div id="document" class="col-md-12">
+                <form role="form">
+                    <legend>Documents</legend>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="15" ng-model="selectedResult.value">                            
+                        </textarea>
+                    </div>
+                    <button id="save" ng-click="save()" ng-cloak type="button" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

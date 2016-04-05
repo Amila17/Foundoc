@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<package>
+  <metadata>
+    <id>Foundoc.Manager</id>
+    <version>1.0.0.0</version>
+    <description>A management tool for FounDoc.</description>
+    <authors>Bede Gaming Limited</authors>
+    <language>en-GB</language>
+    <dependencies>
+      <dependency id="Foundoc" version="0.5.0" />
+      <dependency id="Microsoft.Owin" version="3.0.0" />
+      <dependency id="Microsoft.Owin.FileSystems" version="3.0.0" />
+      <dependency id="Microsoft.Owin.StaticFiles" version="3.0.0" />
+      <dependency id="Nancy" version="0.23.2" />
+      <dependency id="Nancy.Bootstrappers.Autofac" version="0.23.2" />
+      <dependency id="Nancy.Owin" version="0.23.2" />
+      <dependency id="Nancy.Viewengines.Razor" version="0.23.2"  />
+      <dependency id="Microsoft.AspNet.Mvc" version="5.2.2"  />
+    </dependencies>
+    <frameworkAssemblies>
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="Foundoc.Manager\Foundoc.Manager.*" target="lib\net45"/>
+    <file src="Foundoc.Manager\Views\**" target="content\Views"/>
+    <file src="Foundoc.Manager\Assets\css\**" target="content\Assets\css"/>
+    <file src="Foundoc.Manager\Assets\js\**" target="content\Assets\js"/>
+  </files>
+</package>
